@@ -1,6 +1,6 @@
 .profile {
   display: grid;
-  grid-template-columns: 120px auto 100px 154px;
+  grid-template-columns: 120px 1fr 100px 154px;
   grid-template-rows: 1fr;
   margin-bottom: 51px;
   align-items: center;
@@ -13,6 +13,7 @@
 }
 @media screen and (max-width: 767px) {
   .profile {
+    margin-bottom: 36px;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     justify-items: center;

@@ -8,6 +8,7 @@
   margin: auto;
   background-image: url(../../../images/group.svg);
   transition: opacity 0.4s ease-in-out;
+  border: none;
 }
 .element__group:hover {
   opacity: 0.5;

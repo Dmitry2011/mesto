@@ -12,53 +12,55 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img src="./images/jacIfCusto.jpg" alt="фотография исследователя океанов Жак-Ив Кусто" class="avatar">
-      <div class="profile-info">
+      <img src="./images/jacIfCusto.jpg" alt="фотография исследователя океанов Жак-Ив Кусто" class="profile__avatar">
+      <div class="profile__info">
         <div>
-          <h1 class="profile-info__title">Жак-Ив Кусто</h1>
-          <p class="profile-info__subtitle">Исследователь океана</p>
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <p class="profile__subtitle">Исследователь океана</p>
         </div>
-        <button type="button" class="profile-info__edit-button"></button>
+        <button type="button" aria-label="Редактировать профиль" class="profile__edit-button"></button>
       </div>
-      <button type="button" class="add-button"></button>
+      <button type="button" aria-label="Добавить картачку" class="profile__add-button"></button>
     </section>
-    <ul class="elements">
-      <li class="element">
+    <section class="elements" aria-label="Секция со списком карточек">
+      <ul class="elements__list">
+        <li class="element">
         <img src="./images/karachaevsk.jpg" alt="Старинное здание на фоне гор" class="element__mask-group">
           <h2 class="element__title">Карачаевск</h2>
-          <div class="element__group"></div>
-      </li>
-      <li class="element">
+          <button type="button" aria-label="Лайк" class="element__group"></button>
+        </li>
+        <li class="element">
         <img src="./images/goraElBrus.jpg" alt="Гора эльбрус на закате" class="element__mask-group">
           <h2 class="element__title">Гора Эльбрус</h2>
-          <div class="element__group"></div>
-      </li>
-      <li class="element">
+          <button type="button" aria-label="Лайк" class="element__group"></button>
+        </li>
+        <li class="element">
         <img src="./images/dombai.jpg" alt="Хвойный лес на фоне заснеженных гор" class="element__mask-group">
           <h2 class="element__title">Домбай</h2>
-          <div class="element__group"></div>
-      </li>
-      <li class="element">
+          <button type="button" aria-label="Лайк" class="element__group"></button>
+        </li>
+        <li class="element">
         <img src="./images/goraElBrus.jpg" alt="Гора эльбрус на закате" class="element__mask-group">
           <h2 class="element__title">Гора Эльбрус</h2>
-          <div class="element__group"></div>
-      </li>
-      <li class="element">
+          <button type="button" aria-label="Лайк" class="element__group"></button>
+        </li>
+        <li class="element">
         <img src="./images/dombai.jpg" alt="Хвойный лес на фоне заснеженных гор" class="element__mask-group">
           <h2 class="element__title">Домбай</h2>
-          <div class="element__group"></div>
-      </li>
-      <li class="element">
+          <button type="button" aria-label="Лайк" class="element__group"></button>
+        </li>
+        <li class="element">
         <img src="./images/karachaevsk.jpg" alt="Старинное здание на фоне гор" class="element__mask-group">
           <h2 class="element__title">Карачаево-Черкессия</h2>
-          <div class="element__group"></div>
-      </li>
-      <li class="element">
+          <button type="button" aria-label="Лайк" class="element__group"></button>
+        </li>
+        <li class="element">
         <img src="./images/karachaevsk.jpg" alt="Старинное здание на фоне гор" class="element__mask-group">
           <h2 class="element__title">Карачаево-Черкессия</h2>
-          <div class="element__group"></div>
-      </li>
-    </ul>
+          <button type="button" aria-label="Лайк" class="element__group"></button>
+        </li>
+      </ul>
+    </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2020 Mesto Russia</p>
@@ -66,12 +68,12 @@
   <div class="popup">
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class='popup__form'>
-        <input class="popup__name" type="text" required="required" value="Жак-Ив Кусто"/>
-        <input class="popup__profession" type="text" required="required" value="Исследователь океана"/>
+      <form name="form" class='popup__form'>
+        <input name="name" class="popup__subtitle popup__subtitle_type_name" type="text" required="required"/>
+        <input name="profession" class="popup__subtitle popup__subtitle_type_profession" type="text" required="required"/>
         <button type="submit" class="popup__save-button">Сохранить</button>
       </form>
-      <div class="popup__close"></div>
+      <button type="button" aria-label="Закрыть" class="popup__close"></button>
     </div>
   </div>
   <script src="./scripts/index.js"></script>
