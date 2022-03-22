@@ -6,6 +6,7 @@
   width: 22px;
   height: 19px;
   margin: auto;
+  background: none;
   background-image: url(../../../images/group.svg);
   transition: opacity 0.4s ease-in-out;
   border: none;
