@@ -24,55 +24,51 @@
     </section>
     <section class="elements" aria-label="Секция со списком карточек">
       <ul class="elements__list">
-        <li class="element">
-        <img src="./images/karachaevsk.jpg" alt="Старинное здание на фоне гор" class="element__mask-group">
-          <h2 class="element__title">Карачаевск</h2>
-          <button type="button" aria-label="Лайк" class="element__group"></button>
-        </li>
-        <li class="element">
-        <img src="./images/goraElBrus.jpg" alt="Гора эльбрус на закате" class="element__mask-group">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button type="button" aria-label="Лайк" class="element__group"></button>
-        </li>
-        <li class="element">
-        <img src="./images/dombai.jpg" alt="Хвойный лес на фоне заснеженных гор" class="element__mask-group">
-          <h2 class="element__title">Домбай</h2>
-          <button type="button" aria-label="Лайк" class="element__group"></button>
-        </li>
-        <li class="element">
-        <img src="./images/goraElBrus.jpg" alt="Гора эльбрус на закате" class="element__mask-group">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button type="button" aria-label="Лайк" class="element__group"></button>
-        </li>
-        <li class="element">
-        <img src="./images/dombai.jpg" alt="Хвойный лес на фоне заснеженных гор" class="element__mask-group">
-          <h2 class="element__title">Домбай</h2>
-          <button type="button" aria-label="Лайк" class="element__group"></button>
-        </li>
-        <li class="element">
-        <img src="./images/karachaevsk.jpg" alt="Старинное здание на фоне гор" class="element__mask-group">
-          <h2 class="element__title">Карачаево-Черкессия</h2>
-          <button type="button" aria-label="Лайк" class="element__group"></button>
-        </li>
-        <li class="element">
-        <img src="./images/karachaevsk.jpg" alt="Старинное здание на фоне гор" class="element__mask-group">
-          <h2 class="element__title">Карачаево-Черкессия</h2>
-          <button type="button" aria-label="Лайк" class="element__group"></button>
-        </li>
+        <template id="element-item-template">
+          <li class="element">
+            <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="Байкал" class="element__mask-group">
+            <h2 class="element__title"></h2>
+            <svg class="element__group" viewBox="0 0 22 19" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.2991 9.78586C22.567 7.54338 22.567 3.90213 20.2991 1.68186C18.0311 -0.560619 14.3486 -0.560619 12.0806 1.68186L10.9804 2.792L9.88007 1.70406C7.61215 -0.560619 3.92957 -0.560619 1.6841 1.68186C0.583822 2.76979 0 4.21297 0 5.74496C0 7.27695 0.606277 8.72013 1.6841 9.80806L10.9804 19L20.2991 9.78586ZM1.4371 5.74496C1.4371 4.59042 1.8862 3.52469 2.71702 2.72539C3.5703 1.88168 4.67058 1.45983 5.77086 1.45983C6.87114 1.45983 7.97142 1.88168 8.8247 2.72539L10.9804 4.83465L13.136 2.70318C14.8201 1.03798 17.582 1.03798 19.2437 2.70318C20.0521 3.50248 20.5236 4.56821 20.5236 5.72276C20.5236 6.8773 20.0745 7.94303 19.2437 8.74233L10.9804 16.9351L2.71702 8.76453C1.90865 7.94303 1.4371 6.8773 1.4371 5.74496Z" fill="black"/>
+              </svg>
+            <button type="button" aria-label="Удалить карточку" class="element__delete">
+              <div class="element__cap"></div>
+              <div class="element__basket"></div>
+            </button>
+          </li>
+        </template>
       </ul>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
-  <div class="popup">
+  <div class="popup popup_type_profile">
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form name="form" class='popup__form'>
+      <form name="form-profile" class='popup__form'>
         <input name="name" class="popup__subtitle popup__subtitle_type_name" type="text" required="required"/>
         <input name="profession" class="popup__subtitle popup__subtitle_type_profession" type="text" required="required"/>
-        <button type="submit" class="popup__save-button">Сохранить</button>
+        <button type="submit" class="popup__button">Сохранить</button>
+        <button type="button" aria-label="Закрыть" class="popup__close"></button>
       </form>
+    </div>
+  </div>
+  <div class="popup popup_type_new-location">
+    <div class="popup__container">
+      <h2 class="popup__title">Новое место</h2>
+      <form name="form-mesto" class='popup__form'>
+        <input name="mesto" class="popup__subtitle popup__subtitle_type_mesto" type="text" required="required" placeholder = 'Название'/>
+        <input name="link" class="popup__subtitle popup__subtitle_type_link" type="text" required="required" placeholder = 'Ссылка на картинку'/>
+        <button type="submit" class="popup__button">Создать</button>
+        <button type="button" aria-label="Закрыть" class="popup__close"></button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_type_picture">
+    <div class="picture">
+      <img src="./images/dombai.jpg" alt="" class="picture__card">
+      <h3 class="picture__title">Карачаево-Черкессия</h3>
       <button type="button" aria-label="Закрыть" class="popup__close"></button>
     </div>
   </div>
