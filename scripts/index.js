@@ -120,9 +120,10 @@ const renderElements = (cardData) => {
 const addElements = (event) => {
   //убираем событие по умолчанию (чтобы страница не перезагружалась)
   event.preventDefault();
-  initialCards.name = mestoInput.value;
-  initialCards.link = linkInput.value;
-  renderElements(initialCards);
+  const newCard = {}
+  newCard.name = mestoInput.value;
+  newCard.link = linkInput.value;
+  renderElements(newCard);
   formMestoElement.reset()
   сlosePopup(popupNewLocation);
 }
