@@ -50,8 +50,8 @@ const toggleButtonState  = function (inputList, buttonElement) {
 
   // слушаем событие по инпуту
 const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll('.form__input'));
-  const buttonElement = formElement.querySelector('.form__submit');
+  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
+  const buttonElement = formElement.querySelector('.popup__submit');
   // чтобы проверить состояние кнопки в самом начале
   toggleButtonState(inputList, buttonElement);
 
