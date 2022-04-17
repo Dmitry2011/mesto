@@ -44,12 +44,12 @@
   <div class="popup popup_type_profile">
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form name="form-profile" class='popup__form' novalidate>
+      <form name="form-profile" class='popup__form popup__form-profile' novalidate>
         <input id='name-input' name="name" class="popup__subtitle popup__subtitle_type_name popup__input" type="text" required minlength="2" maxlength="40"/>
         <span class="popup__input-error name-input-error"></span>
         <input id='profession-input' name="profession" class="popup__subtitle popup__subtitle_type_profession popup__input" type="text" required minlength="2" maxlength="200"/>
         <span class="popup__input-error profession-input-error"></span>
-        <button type="submit" class="popup__button popup__button-profile popup__submit">Сохранить</button>
+        <button type="submit" class="popup__button popup__button-profile">Сохранить</button>
         <button type="button" aria-label="Закрыть" class="popup__close"></button>
       </form>
     </div>
@@ -57,12 +57,12 @@
   <div class="popup popup_type_new-location">
     <div class="popup__container">
       <h2 class="popup__title">Новое место</h2>
-      <form name="form-mesto" class='popup__form' novalidate>
+      <form name="form-mesto" class='popup__form popup__form-mesto' novalidate>
         <input id='mesto-input' name="mesto" class="popup__subtitle popup__subtitle_type_mesto popup__input" type="text" required minlength="2" maxlength="30" placeholder = 'Название'/>
         <span class="popup__input-error mesto-input-error"></span>
         <input id='link-input' name="link" class="popup__subtitle popup__subtitle_type_link popup__input" type="url" required placeholder = 'Ссылка на картинку'/>
         <span class="popup__input-error link-input-error"></span>
-        <button type="submit" class="popup__button popup__button-new-location popup__submit">Создать</button>
+        <button type="submit" class="popup__button popup__button-new-location">Создать</button>
         <button type="button" aria-label="Закрыть" class="popup__close"></button>
       </form>
     </div>

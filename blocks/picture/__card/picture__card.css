@@ -1,7 +1,5 @@
 .picture__card {
-  min-width: 50vw;
-  max-width: 60vw;
-  min-height: 30vh;
+  max-width: 75vw;
   max-height: 75vh;
   background: #BEBEBE;
 }

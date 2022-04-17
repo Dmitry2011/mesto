@@ -8,6 +8,7 @@
   margin: auto;
   background: none;
   background-image: url(../../../images/group.svg);
+  background-repeat: no-repeat;
   transition: opacity 0.4s ease-in-out;
   border: none;
   z-index: 1;

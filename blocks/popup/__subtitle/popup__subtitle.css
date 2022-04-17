@@ -10,7 +10,7 @@
   border-left: 0;
   border-right: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
+  position: relative;
 }
 .popup__subtitle:first-child {
   margin-top: 0px;
