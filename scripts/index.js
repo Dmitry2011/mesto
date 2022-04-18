@@ -58,26 +58,30 @@ const closeByEsc = (event) => {
   };
 };
 
-  // функция открытия попапов
-  function openPopup(popup) {
-    if (popup != popupPicture) {
-      const form = popup.querySelector(formElementList.formSelector);
-      const inputList = Array.from(form.querySelectorAll(formElementList.inputSelector));
-      inputList.forEach((inputElement, formElementList) => {
-        hideInputError(form, inputElement, formElementList);
-        inputElement.classList.remove(formElementList.errorTextClass);
-      });
+  // функция скрытия ошибки при повторном открытии попап
+function hideErrors(popup) {
+  if (popup != popupPicture) {
+    const form = popup.querySelector(formElementList.formSelector);
+    const inputList = Array.from(form.querySelectorAll(formElementList.inputSelector));
+    inputList.forEach((inputElement) => {
+      hideInputError(form, inputElement, formElementList);
+      inputElement.classList.remove(formElementList.errorTextClass);
+    });
+  }
+}
 
-    }
+  // функция открытия попапов
+function openPopup(popup) {
+  hideErrors(popup);
   popup.classList.add('popup_opened');
   document.addEventListener ('keyup', closeByEsc);
-  };
+};
 
-    // функция закрытия попапов
-  function сlosePopup (popup) {
-    popup.classList.remove('popup_opened');
-    document.removeEventListener ('keyup', closeByEsc);
-  };
+  // функция закрытия попапов
+function сlosePopup (popup) {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener ('keyup', closeByEsc);
+};
 
   //открыть попап профиля + прописать текущее значение имени профиля
 profileEditButton.addEventListener ('click', function(formElementList) {
@@ -87,7 +91,6 @@ profileEditButton.addEventListener ('click', function(formElementList) {
   disabledButton(popupButtonProfile, formElementList.inactiveButtonClass);
   openPopup(popupProfile);
 })
-
 
   //открыть попап добавления новой карточки
 profileEddButton.addEventListener ('click', function(formElementList) {
