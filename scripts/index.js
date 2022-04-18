@@ -60,19 +60,16 @@ const closeByEsc = (event) => {
 
   // функция скрытия ошибки при повторном открытии попап
 function hideErrors(popup) {
-  if (popup != popupPicture) {
-    const form = popup.querySelector(formElementList.formSelector);
-    const inputList = Array.from(form.querySelectorAll(formElementList.inputSelector));
-    inputList.forEach((inputElement) => {
-      hideInputError(form, inputElement, formElementList);
-      inputElement.classList.remove(formElementList.errorTextClass);
-    });
-  }
+  const form = popup.querySelector(formElementList.formSelector);
+  const inputList = Array.from(form.querySelectorAll(formElementList.inputSelector));
+  inputList.forEach((inputElement) => {
+    hideInputError(form, inputElement, formElementList);
+    inputElement.classList.remove(formElementList.errorTextClass);
+  });
 }
 
   // функция открытия попапов
 function openPopup(popup) {
-  hideErrors(popup);
   popup.classList.add('popup_opened');
   document.addEventListener ('keyup', closeByEsc);
 };
@@ -87,6 +84,8 @@ function сlosePopup (popup) {
 profileEditButton.addEventListener ('click', function(formElementList) {
   nameInput.value = profileName.innerText;
   professionInput.value = profession.innerText;
+    //скрытm ошибки при повторном открытии попап
+  hideErrors(popupProfile);
     //деактивация кнопки при каждом открытии попап
   disabledButton(popupButtonProfile, formElementList.inactiveButtonClass);
   openPopup(popupProfile);
@@ -94,7 +93,9 @@ profileEditButton.addEventListener ('click', function(formElementList) {
 
   //открыть попап добавления новой карточки
 profileEddButton.addEventListener ('click', function(formElementList) {
-  //деактивация кнопки при каждом открытии попап
+    //скрытm ошибки при повторном открытии попап
+  hideErrors(popupNewLocation);
+    //деактивация кнопки при каждом открытии попап
   disabledButton(popupButtonNewLocation, formElementList.inactiveButtonClass);
   formMestoElement.reset();
   openPopup(popupNewLocation);
@@ -103,7 +104,7 @@ profileEddButton.addEventListener ('click', function(formElementList) {
 
 function handleProfileFormSubmit (evt) {
   evt.preventDefault();
-  //возвращаем значения в форму + закрываем попап
+    //возвращаем значения в форму + закрываем попап
   profileName.textContent = nameInput.value;
   profession.textContent = professionInput.value;
   сlosePopup(popupProfile);
@@ -128,7 +129,7 @@ const createElement = (cardData) => {
       event.target.classList.toggle('element__group_type_activ');
     })
 
-      //открыть попап карточка с картинкой
+        //открыть попап карточка с картинкой
       templateElementsMask.addEventListener('click',() => {
       pictureCard.src = cardData.link;
       pictureCard.alt = cardData.name;
@@ -144,7 +145,7 @@ const renderElements = (cardData) => {
 
   //навешиваем обработчик по submit
 const addElements = (event) => {
-  //убираем событие по умолчанию (чтобы страница не перезагружалась)
+    //убираем событие по умолчанию (чтобы страница не перезагружалась)
   event.preventDefault();
   const newCard = {}
   newCard.name = mestoInput.value;
