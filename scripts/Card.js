@@ -1,4 +1,4 @@
-import { openPopup } from "./index.js";
+import {openPopup} from "./index.js";
 
 const pictureCard = document.querySelector('.picture__card');
 const pictureTitle = document.querySelector('.picture__title');

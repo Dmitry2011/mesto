@@ -1,37 +1,11 @@
 import {FormValidator} from './FormValidator.js';
 import {Card} from './Card.js';
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+import {initialCards} from './array.js';
 
 const formProfileElement = document.querySelector('.popup__form-profile');
 const formMestoElement = document.querySelector('.popup__form-mesto');
 const profileEditButton = document.querySelector('.profile__edit-button');
-const profileEddButton = document.querySelector('.profile__add-button');
+const profileAddButton = document.querySelector('.profile__add-button');
 const popupProfile = document.querySelector('.popup_type_profile');
 const popupNewLocation = document.querySelector('.popup_type_new-location');
 const nameInput = formProfileElement.querySelector('.popup__subtitle_type_name');
@@ -58,8 +32,8 @@ function creatNewCard (data) {
   return cardElement;
 }
 
-  //функция добавления новых карточек (в начало)
-const addNewCards = function(items) {
+  //функция добавления новой карточки (в начало)
+const addNewCard = function(items) {
   const cardFromPopup = creatNewCard (items);
   elementsList.prepend(cardFromPopup);
 };
@@ -106,7 +80,7 @@ profileEditButton.addEventListener ('click', function(formElementList) {
     //деактивация кнопки при каждом открытии попап
   editProfileValidation.toggleButtonState();
     //скрытm ошибки при повторном открытии попап
-  editProfileValidation.hideErrors(popupProfile);
+  editProfileValidation.hideErrors();
   openPopup(popupProfile);
 })
 
@@ -120,11 +94,11 @@ function handleProfileFormSubmit (event) {
 }
 
   //открыть попап добавления новой карточки
-profileEddButton.addEventListener ('click', function(formElementList) {
+profileAddButton.addEventListener ('click', function(formElementList) {
     //деактивация кнопки при каждом открытии попап
-  addProfileValidation.toggleButtonState();
+  addProfileValidation._disabledButton();
     //скрытm ошибки при повторном открытии попап
-  addProfileValidation.hideErrors(popupNewLocation);
+  addProfileValidation.hideErrors();
   formMestoElement.reset();
   openPopup(popupNewLocation);
 })
@@ -135,7 +109,7 @@ const addCard = function (event) {
   const newCard = {}
   newCard.name = mestoInput.value;
   newCard.link = linkInput.value;
-  addNewCards(newCard);
+  addNewCard(newCard);
   сlosePopup(popupNewLocation);
 };
 
