@@ -51,7 +51,7 @@ export class FormValidator {
   };
 
     //функция деактивации кнопки
-  _disabledButton = () => {
+  disabledButton = () => {
     this._buttonElement.classList.add(this._inactiveButtonClass);
     this._buttonElement.disabled = true;
   }
@@ -65,7 +65,7 @@ export class FormValidator {
     // функция деактивации кнопки отправки формы
   toggleButtonState  = () => {
     if (this._hasInvalidInput(this._inputList)) {
-      this._disabledButton(this._buttonElement);
+      this.disabledButton(this._buttonElement);
     } else {
       this._enableButton(this._buttonElement);
     }

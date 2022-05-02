@@ -96,7 +96,7 @@ function handleProfileFormSubmit (event) {
   //открыть попап добавления новой карточки
 profileAddButton.addEventListener ('click', function(formElementList) {
     //деактивация кнопки при каждом открытии попап
-  addProfileValidation._disabledButton();
+  addProfileValidation.disabledButton();
     //скрытm ошибки при повторном открытии попап
   addProfileValidation.hideErrors();
   formMestoElement.reset();
