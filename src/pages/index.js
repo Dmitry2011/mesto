@@ -12,24 +12,23 @@ import {
   initialCards,
   elementsList,
   formElementList,
-  userInfo,
   profileEdit,
   elementsAdd,
   formProfileElement,
   formMestoElement,
-  mestoInput,
-  linkInput,
+  nameInput,
+  professionInput
 } from '../utils/constants.js';
 
   // открыть попап просмотра карточки
-const functionPopupPicture = new PopupWithImage(popupPicture);
-functionPopupPicture.setEventListeners();
+const popupImage = new PopupWithImage(popupPicture);
+popupImage.setEventListeners();
 
   // функция создания новой карточки
 const createNewCard = function creatNewCard(data) {
   const card = new Card({data,
     handleCardClick: (name, link) => {
-      functionPopupPicture.openPopup(name, link);
+      popupImage.openPopup(name, link);
     }
   }, '#element-item-template');
   const cardElement = card.generateCard();
@@ -37,32 +36,34 @@ const createNewCard = function creatNewCard(data) {
 }
 
   //функция добавления новой карточки
-const creatCard = new Section ({
+const cards = new Section ({
   data: initialCards,
   renderer: (item) => {
     const objectFromArray = createNewCard(item);
-    creatCard.addItem(objectFromArray);
+    cards.addItem(objectFromArray);
   }
 }, elementsList );
-creatCard.renderItems();
+cards.renderItems();
 
   // Добавляем новую карточку
 const popupWithFormAdd = new PopupWithForm(
   {callbackSubmit: (data) => {
-    data.link = linkInput.value;
-    data.name = mestoInput.value;
     const cardFromPopup = createNewCard(data);
-    creatCard.addItem(cardFromPopup);
+    cards.addItem(cardFromPopup);
     popupWithFormAdd.closePopup();
   }
 }, elementsAdd);
 popupWithFormAdd.setEventListeners();
 
-const createUserInfo = new UserInfo (userInfo);
+const createUserInfo = new UserInfo ('.profile__title', '.profile__subtitle');
 
   //функция открытия попапа редактирования профиля
 function editProfile() {
-  createUserInfo.getUserInfo();
+  // подставляем данные из объекта в модальное окно
+  const userData = createUserInfo.getUserInfo();
+  nameInput.value = userData.name;
+  professionInput.value = userData.profession;
+
   //деактивация кнопки при каждом открытии попап
   editProfileValidation.toggleButtonState();
   //скрыть ошибки при повторном открытии попап

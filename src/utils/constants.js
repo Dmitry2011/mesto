@@ -37,10 +37,7 @@ export const elementsList = document.querySelector('.elements__list');
 export const popupPicture = document.querySelector('.popup_type_picture');
 export const profileEdit = document.querySelector('.popup_type_profile');
 export const elementsAdd = document.querySelector('.popup_type_new-location');
-export const userInfo = {
-  profileName: document.querySelector('.profile__title'),
-  profession: document.querySelector('.profile__subtitle')
-}
+export const pictureTitle = document.querySelector('.picture__title');
 
 export const formElementList = {
   inputSelector: '.popup__input',

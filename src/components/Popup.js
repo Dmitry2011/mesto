@@ -1,6 +1,7 @@
 export class Popup {
   constructor (popup) {
     this._popup = popup;
+
   }
 
   // метод открытия попапов

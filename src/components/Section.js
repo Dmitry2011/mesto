@@ -1,8 +1,8 @@
 export class Section {
-  constructor ({data, renderer }, containerSelector) {
+  constructor ({data, renderer }, elementsList) {
     this._initialArray = data;
     this._renderer = renderer;
-    this._container = containerSelector;
+    this._container = elementsList;
   }
 
     // метод для отрисовки элементов

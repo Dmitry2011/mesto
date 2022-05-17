@@ -1,4 +1,5 @@
 import {Popup} from '../components/Popup.js';
+import {pictureTitle} from '../utils/constants.js';
 
 export class PopupWithImage  extends Popup {
   constructor (popupSelector) {
@@ -10,7 +11,7 @@ export class PopupWithImage  extends Popup {
   openPopup (name, link) {
     this._pictureCard.src = link;
     this._pictureCard.alt = name;
-    document.querySelector('.picture__title').textContent = name;
+    pictureTitle.textContent = name;
     super.openPopup();
   }
 }
