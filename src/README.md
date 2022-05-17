@@ -1,6 +1,6 @@
 # Проект:
 ![Место 2022](./images/_Mesto_.jpg)
-## Осваиваем JavaScript
+## Осваиваем JavaScript ООП
 ### А так же закрепляем CSS
 
 1. Реализована адаптивная верстка согласно макета: [Макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)

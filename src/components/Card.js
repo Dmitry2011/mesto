@@ -1,14 +1,9 @@
-import {openPopup} from "./index.js";
-
-const pictureCard = document.querySelector('.picture__card');
-const pictureTitle = document.querySelector('.picture__title');
-const popupPicture = document.querySelector('.popup_type_picture');
-
 export class Card {
-  constructor (name, link, cardSelector) {
-      this._name = name;
-      this._link = link;
+  constructor ({data, handleCardClick}, cardSelector) {
+      this._name = data.name;
+      this._link = data.link;
       this._cardSelector = cardSelector;
+      this._handleCardClick = handleCardClick;
   }
 
     //получаем шаблон карточки
@@ -45,9 +40,9 @@ export class Card {
     });
       //"открыть попап карточки с картинкой"
     this._cardImage.addEventListener ('click', () => {
-        this._openPopupPicture();
+        this._handleCardClick(this._name, this._link);
     });
-}
+  }
     // функция установки лайк
   _likeCard () {
     this._like.classList.toggle('element__group_type_activ');
@@ -57,12 +52,5 @@ export class Card {
   _deleteCard() {
     this._element.remove();
     this._element = null;
-}
-    // функция открытия попап карточки
-  _openPopupPicture () {
-    pictureCard.src = this._link;
-    pictureCard.alt = this._name;
-    pictureTitle.textContent = this._name;
-    openPopup(popupPicture);
   }
 }
