@@ -1,11 +1,12 @@
 import {Popup} from '../components/Popup.js';
 
 export class PopupWithForm  extends Popup {
-  constructor ({callbackSubmit}, popup) {
+  constructor ({popup, callbackSubmit}) {
     super(popup);
     this._callbackSubmit = callbackSubmit;
     this._forma = this._popup.querySelector('.popup__form');
     this._inputList = this._forma.querySelectorAll('.popup__input');
+    this._buttonSubmit = this._forma.querySelector('.popup__button');
   }
 
    // метод собирает данные всех полей форм
@@ -25,9 +26,18 @@ export class PopupWithForm  extends Popup {
     });
   }
 
-   // метод очищает форму при закрытии
+   // метод очищает форму при закрытии попап
   closePopup() {
     super.closePopup();
     this._forma.reset();
+  }
+
+    // метод отбражения загрузки данных на сервер
+  loadingData(isLoading) {
+    if(isLoading) {
+      this._buttonSubmit.textContent = 'Сохранение...';
+    } else {
+      this._buttonSubmit.textContent = 'Сохранить';
+    }
   }
 }

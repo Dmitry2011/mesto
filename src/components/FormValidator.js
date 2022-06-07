@@ -26,7 +26,7 @@ export class FormValidator {
     errorElement.textContent = " ";
   }
 
-  // функция скрытия ошибки при повторном открытии попап
+    // функция скрытия ошибки при повторном открытии попап
   hideErrors = () => {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
@@ -56,7 +56,7 @@ export class FormValidator {
     this._buttonElement.disabled = true;
   }
 
-  //функция активации кнопки
+    //функция активации кнопки
   _enableButton = () => {
     this._buttonElement.classList.remove(this._inactiveButtonClass);
     this._buttonElement.disabled = false;
@@ -72,7 +72,7 @@ export class FormValidator {
   }
 
     // слушаем событие по инпуту (валидность при вводе)
-  _setEventListeners = () => {
+  _setEventListeners () {
       // чтобы проверить состояние кнопки в самом начале
     this.toggleButtonState ();
     this._inputList.forEach((inputElement) => {

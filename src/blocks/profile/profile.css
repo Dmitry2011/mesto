@@ -4,6 +4,7 @@
   grid-template-rows: 1fr;
   margin-bottom: 51px;
   align-items: center;
+  position: relative;
 }
 @media screen and (max-width: 1023px) {
   .profile {

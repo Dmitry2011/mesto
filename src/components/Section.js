@@ -1,19 +1,23 @@
 export class Section {
-  constructor ({data, renderer }, elementsList) {
-    this._initialArray = data;
+  constructor ({ renderer }, elementsList) {
     this._renderer = renderer;
     this._container = elementsList;
   }
 
     // метод для отрисовки элементов
-  renderItems () {
-    this._initialArray.forEach((item) => {
-      this._renderer(item);
+  renderItems (items) {
+    items.forEach(element => {
+      this._renderer(element);
     });
   }
 
     // метод принимает DOM элемент и добавляет его в контейнер(в начало)
-  addItem(element) {
+  addItemPrepend(element) {
     this._container.prepend(element);
+  }
+
+    // метод принимает DOM элемент и добавляет его в контейнер(в конец)
+  addItemAppend(element) {
+    this._container.append(element);
   }
 }

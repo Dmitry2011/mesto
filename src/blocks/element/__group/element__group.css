@@ -1,11 +1,8 @@
 .element__group {
-  grid-column-start: 5;
-  grid-column-end: 6;
-  grid-row-start: 4;
-  grid-row-end: 5;
+  display: block;
+  margin: auto;
   width: 22px;
   height: 19px;
-  margin: auto;
   background: none;
   background-image: url(../../../images/group.svg);
   background-repeat: no-repeat;
