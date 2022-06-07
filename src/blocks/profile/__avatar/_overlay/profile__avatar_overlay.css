@@ -1,5 +1,4 @@
 .profile__avatar_overlay {
-  position: relative;
   grid-column-start: 1;
   grid-column-end: 2;
   position: absolute;
