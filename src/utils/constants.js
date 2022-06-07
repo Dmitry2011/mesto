@@ -12,7 +12,7 @@ export const elementsAdd = document.querySelector('.popup_type_new-location');
 export const avatarEdit = document.querySelector('.popup_type_user-avatar');
 export const popupDelete = document.querySelector('.popup_type_delete');
 export const profileAvatar = document.querySelector('.profile__avatar');
-export const editAvatarButton = document.querySelector('.profile__avatar_edit');
+export const editAvatarButton = document.querySelector('.profile__avatar-edit');
 
 export const formElementList = {
   inputSelector: '.popup__input',
