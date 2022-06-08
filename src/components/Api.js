@@ -1,6 +1,6 @@
 export class Api {
   constructor(config) {
-    this._Url = config.Url;
+    this._url = config.Url;
     this._token = config.headers.authorization;
   }
 
@@ -15,7 +15,7 @@ export class Api {
 
     // Метод получения карточки с сервера
   getInitialCards() {
-    return fetch(`${this._Url}/cards`, {
+    return fetch(`${this._url}/cards`, {
       headers: {
         authorization: this._token
       }
@@ -25,7 +25,7 @@ export class Api {
 
     // Метод получения данных о пользователе с сервера
   getUserData() {
-    return fetch(`${this._Url}/users/me`, {
+    return fetch(`${this._url}/users/me`, {
       headers: {
         authorization: this._token
       }
@@ -35,7 +35,7 @@ export class Api {
 
     // Метод обновления данных пользователя на сервере
   updateUserData(data) {
-    return fetch(`${this._Url}/users/me`, {
+    return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: {
         authorization: this._token,
@@ -51,7 +51,7 @@ export class Api {
 
     // Метод обновления аватар на сервере
   updateAvatar(data) {
-    return fetch(`${this._Url}/users/me/avatar`, {
+    return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
         authorization: this._token,
@@ -66,7 +66,7 @@ export class Api {
 
     // Метод добавления новой карточки на сервер
   addNewCard(data) {
-    return fetch(`${this._Url}/cards`, {
+    return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: {
         authorization: this._token,
@@ -82,7 +82,7 @@ export class Api {
 
     // Метод удаления карточки с сервера
   deleteCard(_id) {
-    return fetch(`${this._Url}/cards/${_id}`, {
+    return fetch(`${this._url}/cards/${_id}`, {
       method: 'DELETE',
       headers: {
         authorization: this._token
@@ -93,7 +93,7 @@ export class Api {
 
     // Метод добавления "лайк"
   addLike(_id) {
-    return fetch(`${this._Url}/cards/likes/${_id}`, {
+    return fetch(`${this._url}/cards/likes/${_id}`, {
       method: 'PUT',
       headers: {
         authorization: this._token
@@ -104,7 +104,7 @@ export class Api {
 
     // Метод удаления "лайк"
   deleteLike(_id) {
-    return fetch(`${this._Url}/cards/likes/${_id}`, {
+    return fetch(`${this._url}/cards/likes/${_id}`, {
       method: 'DELETE',
       headers: {
         authorization: this._token

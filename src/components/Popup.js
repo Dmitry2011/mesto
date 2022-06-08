@@ -1,6 +1,9 @@
 export class Popup {
   constructor (popup) {
     this._popup = popup;
+    this._handleEscClose = this._handleEscClose.bind(this);
+    this._handleBtnClose = this._handleBtnClose.bind(this);
+    this._handleOverlayClose = this._handleOverlayClose.bind(this);
   }
 
   // метод открытия попапов
@@ -15,23 +18,27 @@ export class Popup {
     document.removeEventListener ('keyup', this._handleEscClose);
   }
 
-  // метод закрытия попапов по Esc
+    // метод закрытия попапов по Esc
   _handleEscClose = (event) => {
     if (event.key === 'Escape') {
-      const popupOpened = document.querySelector('.popup_opened');
       this.closePopup();
     };
   }
 
-  // метод закрытия попапов по оверлей и по крестику
+    // метод закрытия попапов по оверлей
+  _handleOverlayClose(event) {
+    if ( event.target.classList.contains('popup')) {
+    this.closePopup();
+  }}
+
+    // метод закрытия попапов по оверлей и по крестику
+  _handleBtnClose() {
+    this.closePopup();
+  }
+
+  // метод отслеживания клика по оверлею и крестику
   setEventListeners () {
-    const popupsList = Array.from(document.querySelectorAll('.popup'));
-    popupsList.forEach((popup) => {
-      popup.addEventListener('mousedown', (event) => {
-        if ( event.target.classList.contains('popup__close') || (event.target === event.currentTarget))  {
-          this.closePopup()
-        };
-      });
-    });
+    this._popup.querySelector('.popup__close').addEventListener('click', this._handleBtnClose);
+    this._popup.addEventListener('mousedown', this._handleOverlayClose);
   }
 }

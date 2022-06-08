@@ -64,7 +64,7 @@ const createNewCard = (data) => {
               card.deletCard();
               popupConfirmation.closePopup();
             })
-            .catch((error) => alert(`${error} при удалении карточки`));
+            .catch(() => alert(`${error} при удалении карточки`));
         });
       },
       likeAdd: (isLike) => {
@@ -72,13 +72,15 @@ const createNewCard = (data) => {
           api
             .deleteLike(card.getId())
             .then(card.removeLike())
-            .catch((error) => alert(`${error} при удалении лайка`)
+            .catch(() => alert(`${error} при удалении лайка`)
             );
         } else {
           api
             .addLike(card.getId())
-            .then(card.addLike())
-            .catch((error) => alert(`${error} при установке лайка`));
+            .then(() => {
+              card.addLike();
+          })
+            .catch(() => alert(`${error} при установке лайка`));
         }
       },
     }, '#element-item-template');
@@ -89,6 +91,7 @@ const createNewCard = (data) => {
 const cardList = new Section({
     renderer: (data) => {
       cardList.addItemAppend(createNewCard(data));
+
     },
 }, elementsList);
 
@@ -106,7 +109,7 @@ Promise.all([api.getUserData(), api.getInitialCards()])
   .then(([userDataResult, initialCardsResult]) => {
     createUserInfo.setUserInfo(userDataResult);
     cardList.renderItems(initialCardsResult);
-      })
+  })
   .catch(() => alert(`${error} загрузке данных пользователя с сервера`));
 
   // функция отправки на сервер данных пользователя
@@ -120,7 +123,7 @@ const popupWithFormEdit = new PopupWithForm({
         createUserInfo.setUserInfo(result);
         popupWithFormEdit.closePopup();
       })
-      .catch((error) => alert(`${error} при отправке информации о пользователе на сервер`))
+      .catch(() => alert(`${error} при отправке информации о пользователе на сервер`))
       .finally(() => {
         popupWithFormEdit.loadingData(false);
       });
@@ -148,11 +151,11 @@ const popupWithFormAdd = new PopupWithForm({
       .addNewCard(data)
       .then((result) => {
         cardList.addItemPrepend(createNewCard(result));
+        popupWithFormAdd.closePopup();
       })
-      .catch((error) => alert(`${error} при создании карточки`))
+      .catch(() => alert(`${error} при создании карточки`))
       .finally(() => {
         popupWithFormAdd.loadingData(false);
-        popupWithFormAdd.closePopup();
       });
   },
 });
@@ -177,11 +180,11 @@ const editAvatarPopup = new PopupWithForm({
       .updateAvatar(data)
       .then((result) => {
         profileAvatar.src = result.avatar;
+        editAvatarPopup.closePopup();
       })
-      .catch((error) => alert(`${error} при отправке аватара пользователя на сервер`))
+      .catch(() => alert(`${error} при отправке аватара пользователя на сервер`))
       .finally(() => {
         editAvatarPopup.loadingData(false);
-        editAvatarPopup.closePopup();
       });
   },
 });
